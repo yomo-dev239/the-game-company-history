@@ -13,6 +13,12 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    // ファイル名の大文字小文字を区別する
+    "forceConsistentCasingInFileNames": true,
+    // 暗黙的に戻り値を返すことを禁止する
+    "noImplicitReturns": true,
+    // 暗黙的にインデックス付きアクセスを許可しない
+    "noUncheckedIndexedAccess": true,
     "plugins": [
       {
         "name": "next"

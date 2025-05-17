@@ -19,5 +19,7 @@
     "javascriptreact",
     "typescript",
     "typescriptreact"
-  ]
+  ],
+  // Markuplintの設定を使用
+  "markuplint.useFlatConfig": true
 }
