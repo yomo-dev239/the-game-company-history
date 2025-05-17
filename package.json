@@ -2,6 +2,7 @@
   "name": "the-game-company-history",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
@@ -11,6 +12,16 @@
     "format": "prettier --write .",
     "markuplint": "markuplint \"./**/*.tsx\"",
     "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{js,cjs,mjs,json,ts,tsx,css}": [
+      "prettier --write"
+    ],
+    "*.{ts,tsx}": [
+      "bash -c tsc --noEmit",
+      "next lint --fix",
+      "markuplint"
+    ]
   },
   "dependencies": {
     "next": "15.3.2",
