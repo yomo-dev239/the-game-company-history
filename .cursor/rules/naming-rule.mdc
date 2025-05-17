@@ -1,0 +1,40 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# 命名規則
+
+ソースコードを記述するときは必ず下記の命名規則に従うこと。
+
+## ディレクトリ・ファイル
+
+各種ファイルとディレクトリの命名規則は以下のとおりです：
+
+- `docs/`のドキュメントファイル: ケバブケース（例: `naming-rule.md`）
+- `public/`の静的アセット: ケバブケース（例: `asset-file.png`）
+- `src/app/`のApp Routerファイル: Next.jsの規約に従った固定名（例: `page.tsx`, `layout.tsx`）
+- `src/app/api/`のAPIファイル: `route.ts`という固定名
+- `src/components/`のコンポーネントファイル: パスカルケース（例: `ComponentName.tsx`）
+  - コンポーネントのディレクトリ名とCSSファイル: キャメルケース
+- サーバーアクション: ケバブケース（例: `action-file.ts`）
+- `src/consts/`の定数ファイル: ケバブケース（例: `const-file.ts`）
+- `src/libs/`のライブラリファイル: ケバブケース（例: `lib-file.ts`）
+- `src/styles/`のスタイルファイル: ケバブケース（例: `style-file.scss`）
+- `src/types/`の型定義ファイル: ケバブケース（例: `type-file.ts`）
+
+## コード内の命名規則
+
+ソースコード内の各要素の命名規則は以下のとおりです：
+
+- 変数（フック関連も含む）: キャメルケース（例: `variableName`, `useState`）
+- 定数: スネークケース（全大文字）（例: `CONSTANT_NAME`）
+- 関数: キャメルケース（例: `functionName`）
+- 関数の引数: キャメルケース（例: `functionParameterName`）
+- コンポーネント: パスカルケース（例: `ComponentName`）
+- 型定義: パスカルケース（例: `TypeName`）
+
+## 規約の一貫性
+
+- 特定のディレクトリやファイルタイプ内では、常に一貫した命名規則を使用する
+- 既存のコードベースの規約に従う

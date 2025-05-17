@@ -2,7 +2,6 @@
   "name": "the-game-company-history",
   "version": "0.1.0",
   "private": true,
-  "type": "module",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
@@ -14,16 +13,10 @@
     "prepare": "husky"
   },
   "lint-staged": {
-    "*.{js,cjs,mjs,json,ts,tsx,css}": [
-      "prettier --write"
-    ],
-    "*.{ts,tsx}": [
-      "bash -c tsc --noEmit",
-      "next lint --fix",
-      "markuplint"
-    ]
+    "config": "lint-staged.config.js"
   },
   "dependencies": {
+    "@heroui/react": "^2.7.8",
     "next": "15.3.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"

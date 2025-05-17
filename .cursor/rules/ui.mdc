@@ -1,0 +1,12 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# UI
+
+## ライブラリ
+- UIの実装にはHeroUI(https://www.heroui.com/)を使用する
+
+## パフォーマンス
+- 画像を最適化するためにNext.js Imageコンポーネントを利用する
