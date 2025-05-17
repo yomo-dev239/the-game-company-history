@@ -1,0 +1,23 @@
+{
+  // ファイル保存時に自動的にフォーマットする
+  "editor.formatOnSave": true,
+  // フォーマッターを指定
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // ファイル保存時に自動的にLintを実行
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  // CSSファイルをTailwindCSSとして認識
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  // ESLintの設定を使用
+  "eslint.useFlatConfig": true,
+  // ESLintでバリデーションを行うファイルタイプを指定
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ]
+}
