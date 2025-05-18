@@ -1,0 +1,52 @@
+{
+  "id": "tencent",
+  "name": "Tencent",
+  "country": "China",
+  "established": "1998-11",
+  "headquarters": "Shenzhen, Guangdong",
+  "description": "Tencentは中国の多国籍コングロマリットで、特にデジタルメディア、エンターテインメント、インターネットサービスの分野で広く知られています。1998年に設立されたこの会社は、ソーシャルメッセージングサービス「WeChat」や、多数の人気オンラインゲームを提供していることで有名です。Tencentはまた、広範囲にわたる投資活動も行っており、世界中の多くのテクノロジー企業に出資しています。ゲーム業界では、「Honor of Kings」や「League of Legends」の運営を通じて、その影響力を強めています。中国国内外での広範な事業展開により、Tencentは世界最大のゲーム会社の一つとしてその地位を確立しています。",
+  "notableWorks": [
+    "Honor of Kings",
+    "League of Legends"
+  ],
+  "history": [
+    {
+      "year": "2011",
+      "event": "WeChatのリリース。"
+    },
+    {
+      "year": "2015",
+      "event": "米国のゲーム会社Riot Gamesを完全に買収。"
+    },
+    {
+      "year": "2018",
+      "event": "音楽部門Tencent Musicを米国市場に上場。"
+    },
+    {
+      "year": "2019",
+      "event": "中国国内でのゲーム承認規制により、新作ゲームのリリースが一時的に停止。"
+    },
+    {
+      "year": "2020",
+      "event": "新型コロナウイルスの流行中にオンラインゲームの需要が急増。"
+    },
+    {
+      "year": "2021",
+      "event": "中国政府によるテック企業への規制強化に直面。"
+    },
+    {
+      "year": "2022",
+      "event": "多くの国際的なゲーム会社への投資を拡大。"
+    },
+    {
+      "year": "2025",
+      "event": "データ初期登録"
+    }
+  ],
+  "website": "https://www.tencent.com",
+  "relatedCompanies": [
+    "Riot Games",
+    "Supercell",
+    "Epic Games"
+  ]
+}

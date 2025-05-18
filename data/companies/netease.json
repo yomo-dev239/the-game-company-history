@@ -1,0 +1,52 @@
+{
+  "id": "netease",
+  "name": "NetEase",
+  "country": "China",
+  "established": "1997",
+  "headquarters": "Hangzhou, Zhejiang",
+  "description": "NetEase, Inc.は1997年に設立された中国のテクノロジー企業で、主にインターネット技術、オンラインサービス、ゲームの開発と運営に焦点を当てています。同社は特にオンラインゲームの分野で高い評価を受けており、自社開発のタイトルや他社とのライセンス契約によるタイトルを提供しています。NetEaseは中国国内外で多くのユーザーに支持されており、そのゲームポートフォリオには、MMORPGからモバイルゲームまで幅広いジャンルが含まれています。また、音楽ストリーミングサービスやオンライン教育といった分野でも事業を展開しており、多角的なビジネスモデルを構築しています。近年では、国際市場への進出も積極的に行っており、グローバルな影響力を拡大しています。",
+  "notableWorks": [
+    "Fantasy Westward Journey",
+    "The Ghost",
+    "Justice Online"
+  ],
+  "history": [
+    {
+      "year": "1997",
+      "event": "NetEaseは中国浙江省杭州市で設立されました。"
+    },
+    {
+      "year": "2001",
+      "event": "NASDAQに上場しました。"
+    },
+    {
+      "year": "2016",
+      "event": "自社開発のモバイルゲーム「荒野行動」が大ヒットしました。"
+    },
+    {
+      "year": "2018",
+      "event": "Blizzard Entertainmentとのパートナーシップを更新し、中国での「World of Warcraft」などの独占配信権を維持しました。"
+    },
+    {
+      "year": "2020",
+      "event": "新しい音楽ストリーミングサービス「NetEase Cloud Music」を大幅に拡張しました。"
+    },
+    {
+      "year": "2021",
+      "event": "香港証券取引所に二次上場を果たしました。"
+    },
+    {
+      "year": "2023",
+      "event": "複数の新作ゲームをリリースし、国際市場でのプレゼンスを強化しました。"
+    },
+    {
+      "year": "2025",
+      "event": "データ初期登録"
+    }
+  ],
+  "website": "https://www.netease.com",
+  "relatedCompanies": [
+    "NetEase Cloud Music",
+    "Youdao"
+  ]
+}

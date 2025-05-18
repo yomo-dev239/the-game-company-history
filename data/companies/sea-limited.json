@@ -1,0 +1,47 @@
+{
+  "id": "sea-limited",
+  "name": "Sea Limited",
+  "country": "Singapore",
+  "established": "2009",
+  "headquarters": "Singapore",
+  "description": "Sea Limitedは、2009年に設立されたシンガポールに本社を置くテクノロジー企業で、主にデジタルエンターテイメント、電子商取引、デジタル決済プラットフォームを運営しています。同社は特にゲーム部門で有名で、自社開発の「Garena」プラットフォームを通じて「Free Fire」というモバイルゲームが国際的に大ヒットしています。このゲームは多くの国でダウンロード数がトップに達し、広範なユーザーベースを確立しています。また、Sea Limitedは電子商取引サイト「Shopee」を運営し、東南アジアと台湾でトップの電子商取引プラットフォームとなっています。デジタル金融サービス部門では「SeaMoney」を提供し、さまざまな金融サービスと支払いソリューションを提供しています。",
+  "notableWorks": [
+    "Free Fire"
+  ],
+  "history": [
+    {
+      "year": "2009",
+      "event": "Sea Limited設立。"
+    },
+    {
+      "year": "2017",
+      "event": "ニューヨーク証券取引所に上場。"
+    },
+    {
+      "year": "2019",
+      "event": "Free Fireが世界で最もダウンロードされたモバイルゲームに。"
+    },
+    {
+      "year": "2020",
+      "event": "Shopeeが東南アジアと台湾で最大の電子商取引プラットフォームに成長。"
+    },
+    {
+      "year": "2021",
+      "event": "Sea Limitedが新たな投資を受け、事業拡大を加速。"
+    },
+    {
+      "year": "2022",
+      "event": "経営陣の再編と戦略的な新規事業の開始。"
+    },
+    {
+      "year": "2025",
+      "event": "データ初期登録"
+    }
+  ],
+  "website": "https://www.sea.com",
+  "relatedCompanies": [
+    "Garena",
+    "Shopee",
+    "SeaMoney"
+  ]
+}

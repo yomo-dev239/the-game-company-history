@@ -50,6 +50,10 @@ export default async function CompanyPage(props: Props) {
               <p>{company.established}</p>
             </div>
             <div>
+              <p className="text-gray-600 dark:text-gray-400">本社所在国</p>
+              <p>{company.country || '不明'}</p>
+            </div>
+            <div>
               <p className="text-gray-600 dark:text-gray-400">本社所在地</p>
               <p>{company.headquarters}</p>
             </div>

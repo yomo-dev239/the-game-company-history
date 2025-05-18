@@ -1,0 +1,65 @@
+{
+  "id": "sony-interactive-entertainment",
+  "name": "株式会社ソニー・インタラクティブエンタテインメント",
+  "established": "1993-11-16",
+  "headquarters": "東京都港区",
+  "description": "株式会社ソニー・インタラクティブエンタテインメント（SIE）は、ソニーグループの一員としてビデオゲームの開発、出版、およびハードウェアの製造を行っている日本の企業です。PlayStationブランドの下で、高品質のゲームコンソールと広範なゲームライブラリを提供しており、世界中で広く認知されています。",
+  "notableWorks": [
+    "The Last of Us",
+    "God of War",
+    "Uncharted シリーズ",
+    "Gran Turismo シリーズ",
+    "Horizon Zero Dawn",
+    "The Last of Us Part II",
+    "Ghost of Tsushima",
+    "God of War Ragnarök",
+    "Gran Turismo 7",
+    "Horizon Forbidden West"
+  ],
+  "history": [
+    {
+      "year": "1994",
+      "event": "初代PlayStationの発売。"
+    },
+    {
+      "year": "2016",
+      "event": "PlayStation VRの発売。"
+    },
+    {
+      "year": "2018",
+      "event": "PlayStation 4の世界累計販売台数が1億台を突破。"
+    },
+    {
+      "year": "2020",
+      "event": "PlayStation 5の発売。"
+    },
+    {
+      "year": "2021",
+      "event": "Bluepoint Gamesの買収。"
+    },
+    {
+      "year": "2022",
+      "event": "Bungie, Inc.を34億ドルで買収し、ゲーム開発能力を強化。"
+    },
+    {
+      "year": "2023",
+      "event": "新作ゲーム「Marvel's Spider-Man 2」の発表。"
+    },
+    {
+      "year": "2024",
+      "event": "デジタルゲーム販売の拡大に伴い、PlayStation Networkのユーザー数が過去最高を記録。"
+    },
+    {
+      "year": "2025",
+      "event": "データ初期登録"
+    }
+  ],
+  "website": "https://www.sie.com/",
+  "relatedCompanies": [
+    "Sony Corporation",
+    "Sony Music Entertainment",
+    "Sony Pictures Entertainment",
+    "Bungie, Inc."
+  ],
+  "country": "日本"
+}

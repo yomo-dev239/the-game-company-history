@@ -1,0 +1,52 @@
+{
+  "id": "microsoft",
+  "name": "Microsoft",
+  "country": "United States",
+  "established": "1975-04-04",
+  "headquarters": "Redmond, Washington",
+  "description": "Microsoft Corporationは、ソフトウェア、ハードウェア、および関連技術の開発、製造、ライセンス供与、サポートを行うアメリカの多国籍テクノロジー企業です。1975年にビル・ゲイツとポール・アレンによって設立されたこの会社は、パーソナルコンピュータの普及に大きく貢献し、オペレーティングシステムの「Windows」やオフィススイートの「Microsoft Office」など、広く使用される製品を提供しています。また、クラウドコンピューティングサービスの「Azure」や、プロフェッショナルネットワークサービスの「LinkedIn」、さらにはゲーム業界での「Xbox」シリーズなど、多岐にわたる事業を展開しています。技術革新と戦略的買収により、Microsoftは世界のテクノロジー業界でリーダー的な地位を保持しています。",
+  "notableWorks": [
+    "Windows",
+    "Microsoft Office",
+    "Xbox",
+    "Azure"
+  ],
+  "history": [
+    {
+      "year": "1975",
+      "event": "ビル・ゲイツとポール・アレンによってMicrosoftが設立される。"
+    },
+    {
+      "year": "1985",
+      "event": "Microsoft Windows 1.0がリリースされる。"
+    },
+    {
+      "year": "2001",
+      "event": "初代Xboxが発売される。"
+    },
+    {
+      "year": "2016",
+      "event": "LinkedInを262億ドルで買収。"
+    },
+    {
+      "year": "2020",
+      "event": "COVID-19パンデミック中、リモートワークとオンライン学習の需要増加により、Microsoft Teamsの使用者が急増。"
+    },
+    {
+      "year": "2021",
+      "event": "Zenimax Mediaを75億ドルで買収し、Bethesda Softworksを傘下に収める。"
+    },
+    {
+      "year": "2025",
+      "event": "データ初期登録"
+    }
+  ],
+  "website": "https://www.microsoft.com",
+  "relatedCompanies": [
+    "LinkedIn",
+    "Bethesda Softworks",
+    "Mojang Studios",
+    "Obsidian Entertainment",
+    "Ninja Theory"
+  ]
+}

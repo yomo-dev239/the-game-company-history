@@ -14,16 +14,13 @@ import { performDeepResearch } from './openaiService';
  */
 export async function updateCompanyData(slug: string): Promise<Company> {
   try {
-    // 1. 既存データ読み込み
+    // 1. ファイルパスの設定
     const filePath = path.join(
       process.cwd(),
       'data',
       'companies',
       `${slug}.json`
     );
-    const existingData = JSON.parse(
-      await fs.readFile(filePath, 'utf-8')
-    ) as Company;
 
     // 2. 更新設定を読み込み
     const configPath = path.join(process.cwd(), 'data', 'update-config.json');
@@ -37,20 +34,40 @@ export async function updateCompanyData(slug: string): Promise<Company> {
       throw new Error(`更新設定に会社「${slug}」が見つかりません`);
     }
 
-    // 4. Deep Research APIを呼び出してデータ取得
+    // 4. 既存データの確認と読み込み（または初期化）
+    let existingData: Company;
+    let isNewCompany = false; // 新規会社かどうかのフラグ
+
+    try {
+      // ファイルが存在する場合は読み込む
+      existingData = JSON.parse(
+        await fs.readFile(filePath, 'utf-8')
+      ) as Company;
+      console.log(`会社「${companyConfig.name}」の既存データを読み込みました`);
+    } catch {
+      // ファイルが存在しない場合は初期データを作成
+      console.log(
+        `新規会社「${companyConfig.name}」のデータファイルを作成します`
+      );
+      existingData = createInitialCompanyData(slug, companyConfig.name);
+      isNewCompany = true; // 新規会社フラグを設定
+    }
+
+    // 5. Deep Research APIを呼び出してデータ取得（新規会社フラグを渡す）
     const { companyInfo: updatedData } = await fetchDataFromDeepResearch(
       existingData,
       companyConfig,
-      config.deepResearchPromptTemplate
+      config.deepResearchPromptTemplate,
+      isNewCompany
     );
 
-    // 5. 既存データと統合
+    // 6. 既存データと統合
     const mergedData = mergeCompanyData(existingData, updatedData);
 
-    // 6. ファイル保存
+    // 7. ファイル保存
     await fs.writeFile(filePath, JSON.stringify(mergedData, null, 2), 'utf-8');
 
-    // 7. 設定ファイル更新（最終更新日時）
+    // 8. 設定ファイル更新（最終更新日時）
     await updateConfigLastUpdated(slug);
 
     return mergedData;
@@ -60,6 +77,35 @@ export async function updateCompanyData(slug: string): Promise<Company> {
       `会社「${slug}」の更新中にエラーが発生しました: ${error instanceof Error ? error.message : String(error)}`
     );
   }
+}
+
+/**
+ * 新規会社の初期データを作成
+ * @param slug 会社スラッグ
+ * @param name 会社名
+ * @returns 初期化された会社データ
+ */
+function createInitialCompanyData(slug: string, name: string): Company {
+  // 現在の年を取得
+  const currentYear = new Date().getFullYear().toString();
+
+  return {
+    id: slug,
+    name: name,
+    country: '',
+    established: '',
+    headquarters: '',
+    description: '',
+    notableWorks: [],
+    history: [
+      {
+        year: currentYear,
+        event: 'データ初期登録',
+      },
+    ],
+    website: '',
+    relatedCompanies: [],
+  };
 }
 
 /**
@@ -114,10 +160,16 @@ export async function updateAllCompanies(
 async function fetchDataFromDeepResearch(
   company: Company,
   companyConfig: CompanyUpdateConfig,
-  promptTemplate: string
+  promptTemplate: string,
+  isNewCompany: boolean = false
 ): Promise<{ companyInfo: Partial<Company> }> {
   // OpenAI APIを使用してDeep Research実行
-  return await performDeepResearch(companyConfig.name, promptTemplate, company);
+  return await performDeepResearch(
+    companyConfig.name,
+    promptTemplate,
+    company,
+    isNewCompany
+  );
 }
 
 /**
@@ -131,9 +183,11 @@ function mergeCompanyData(
   const merged: Company = {
     ...existing,
     // 更新された情報で上書き
-    ...(updated.description && { description: updated.description }),
-    ...(updated.headquarters && { headquarters: updated.headquarters }),
-    ...(updated.website && { website: updated.website }),
+    ...(updated.description && { description: updated.description }), // 会社概要
+    ...(updated.country && { country: updated.country }), // 本社所在国
+    ...(updated.headquarters && { headquarters: updated.headquarters }), // 本社所在地
+    ...(updated.website && { website: updated.website }), // 公式サイトURL
+    ...(updated.established && { established: updated.established }), // 設立年月日
   };
 
   // 代表作の更新（既存＋新規、重複除去）
