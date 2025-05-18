@@ -32,6 +32,7 @@ export const getCompanyById = (id: string): Company | null => {
 
     return JSON.parse(fileContents);
   } catch (error) {
+    console.error(`Error fetching company with ID ${id}:`, error);
     return null;
   }
 };

@@ -1,15 +1,7 @@
 // パラメータは下記参照
 // https://github.com/streetsidesoftware/vscode-spell-checker/blob/main/docs/_includes/generated-docs/configuration.md
 {
-  "ignorePaths": [
-    "**/.env"
-  ],
+  "ignorePaths": ["**/.env", "data/**"],
   // 単語を辞書登録
-  "words": [
-    "esbenp",
-    "heroui",
-    "markuplint",
-    "markuplintrc",
-    "Turbopack"
-  ]
+  "words": ["esbenp", "heroui", "markuplint", "markuplintrc", "Turbopack"]
 }

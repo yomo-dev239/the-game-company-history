@@ -1,0 +1,23 @@
+{
+  "id": "bandai-namco",
+  "name": "株式会社バンダイナムコエンターテインメント",
+  "established": "2006-03-31",
+  "headquarters": "日本・東京都港区",
+  "description": "株式会社バンダイナムコエンターテインメントは、バンダイとナムコの統合により誕生した企業で、キャラクターコンテンツとゲーム開発において高い実績を持つ。『太鼓の達人』『テイルズ オブ』シリーズの他、アニメ原作を活用したゲーム作品（ガンダム、ドラゴンボールなど）でも成功を収めている。IPビジネスとゲーム開発を融合させた戦略で国内外に展開している。",
+  "notableWorks": [
+    "太鼓の達人シリーズ",
+    "テイルズ オブシリーズ",
+    "ドラゴンボールゲームシリーズ",
+    "アイドルマスターシリーズ",
+    "パックマン"
+  ],
+  "history": [
+    { "year": "2005", "event": "バンダイとナムコが経営統合" },
+    { "year": "2006", "event": "エンターテインメント事業部門を分社化" },
+    { "year": "2009", "event": "『アイドルマスターSP』発売" },
+    { "year": "2018", "event": "『ドラゴンボール ファイターズ』が世界でヒット" }
+  ],
+  "relatedCompanies": ["バンダイナムコホールディングス", "サンライズ"],
+  "website": "https://www.bandainamcoent.co.jp/",
+  "logoUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Bandai_Namco_Holdings_logo_%282022%2C_with_tagline%29.svg"
+}
