@@ -11,5 +11,4 @@ export type Company = {
   }[];
   relatedCompanies?: string[]; // 関連企業（任意）
   website?: string; // 公式サイトURL（任意）
-  logoUrl?: string; // ロゴURL（任意）
 };

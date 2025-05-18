@@ -1,0 +1,76 @@
+{
+  "companies": [
+    {
+      "slug": "nintendo",
+      "name": "任天堂株式会社",
+      "updateFrequency": "monthly",
+      "priority": "high",
+      "lastUpdated": "2025-05-18T12:21:24.328Z"
+    },
+    {
+      "slug": "square-enix",
+      "name": "株式会社スクウェア・エニックス",
+      "updateFrequency": "monthly",
+      "priority": "high",
+      "lastUpdated": "2025-05-18T12:25:20.364Z"
+    },
+    {
+      "slug": "capcom",
+      "name": "株式会社カプコン",
+      "updateFrequency": "quarterly",
+      "priority": "medium",
+      "lastUpdated": "2025-05-18T12:25:28.490Z"
+    },
+    {
+      "slug": "sega",
+      "name": "株式会社セガ",
+      "updateFrequency": "quarterly",
+      "priority": "medium",
+      "lastUpdated": "2025-05-18T12:25:36.569Z"
+    },
+    {
+      "slug": "bandai-namco",
+      "name": "株式会社バンダイナムコエンターテインメント",
+      "updateFrequency": "monthly",
+      "priority": "high",
+      "lastUpdated": "2025-05-18T12:25:46.155Z"
+    },
+    {
+      "slug": "konami",
+      "name": "株式会社コナミデジタルエンタテインメント",
+      "updateFrequency": "quarterly",
+      "priority": "medium",
+      "lastUpdated": "2025-05-18T12:25:54.180Z"
+    },
+    {
+      "slug": "sony-interactive-entertainment",
+      "name": "株式会社ソニー・インタラクティブエンタテインメント",
+      "updateFrequency": "monthly",
+      "priority": "high",
+      "lastUpdated": "2023-05-18T00:00:00Z"
+    },
+    {
+      "slug": "level-5",
+      "name": "株式会社レベルファイブ",
+      "updateFrequency": "quarterly",
+      "priority": "medium",
+      "lastUpdated": "2023-04-04T00:00:00Z"
+    },
+    {
+      "slug": "atlus",
+      "name": "株式会社アトラス",
+      "updateFrequency": "quarterly",
+      "priority": "medium",
+      "lastUpdated": "2023-04-05T00:00:00Z"
+    },
+    {
+      "slug": "microsoft-gaming",
+      "name": "マイクロソフト ゲーミング",
+      "updateFrequency": "monthly",
+      "priority": "high",
+      "lastUpdated": "2023-05-19T00:00:00Z"
+    }
+  ],
+  "defaultUpdateFrequency": "quarterly",
+  "deepResearchPromptTemplate": "以下の会社について最新情報を調査してください: {{name}}。特に最新の業績、新作ゲーム、経営陣の変更、買収・提携、重要な出来事について詳しく知りたいです。過去5年以内の重要な出来事を沿革として含めてください。"
+}

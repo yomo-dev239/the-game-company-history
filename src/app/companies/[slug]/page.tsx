@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { getCompanyById } from '@/utils/company-utils';
 import { ReturnListButton } from './components/ReturnListButton';
@@ -40,18 +39,6 @@ export default async function CompanyPage(props: Props) {
 
       <div className="my-4 flex items-center justify-between">
         <h1 className="mr-4 text-3xl font-bold">{company.name}</h1>
-        {company.logoUrl && (
-          <div className="flex shrink-0 items-center justify-center">
-            <Image
-              src={company.logoUrl}
-              alt={`${company.name}のロゴ`}
-              width={180}
-              height={100}
-              className="max-h-full max-w-full object-contain"
-              priority
-            />
-          </div>
-        )}
       </div>
 
       <div className="mb-6 rounded-xl bg-white p-6 shadow dark:bg-slate-800">
