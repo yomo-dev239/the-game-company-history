@@ -1,16 +1,11 @@
 {
   "id": "microsoft",
   "name": "Microsoft",
-  "country": "United States",
+  "country": "アメリカ",
   "established": "1975-04-04",
   "headquarters": "Redmond, Washington",
-  "description": "Microsoft Corporationは、ソフトウェア、ハードウェア、および関連技術の開発、製造、ライセンス供与、サポートを行うアメリカの多国籍テクノロジー企業です。1975年にビル・ゲイツとポール・アレンによって設立されたこの会社は、パーソナルコンピュータの普及に大きく貢献し、オペレーティングシステムの「Windows」やオフィススイートの「Microsoft Office」など、広く使用される製品を提供しています。また、クラウドコンピューティングサービスの「Azure」や、プロフェッショナルネットワークサービスの「LinkedIn」、さらにはゲーム業界での「Xbox」シリーズなど、多岐にわたる事業を展開しています。技術革新と戦略的買収により、Microsoftは世界のテクノロジー業界でリーダー的な地位を保持しています。",
-  "notableWorks": [
-    "Windows",
-    "Microsoft Office",
-    "Xbox",
-    "Azure"
-  ],
+  "description": "マイクロソフトは、1975年に設立されたアメリカの多国籍テクノロジー企業で、ソフトウェア、ハードウェア、クラウドサービスを提供しています。代表的な製品には、Windowsオペレーティングシステム、Microsoft Officeスイート、Xboxゲーム機、Azureクラウドサービスがあります。マイクロソフトは、企業や個人向けに革新的なソリューションを提供し、AI技術を活用したプラットフォームの開発にも注力しています。",
+  "notableWorks": ["Windows", "Microsoft Office", "Xbox", "Azure"],
   "history": [
     {
       "year": "1975",
@@ -21,8 +16,20 @@
       "event": "Microsoft Windows 1.0がリリースされる。"
     },
     {
+      "year": "1986",
+      "event": "本社をワシントン州レドモンドに移転"
+    },
+    {
+      "year": "1995",
+      "event": "Microsoft Windows 95 発売"
+    },
+    {
       "year": "2001",
       "event": "初代Xboxが発売される。"
+    },
+    {
+      "year": "2010",
+      "event": "Microsoft Azure サービス提供開始"
     },
     {
       "year": "2016",
@@ -35,18 +42,16 @@
     {
       "year": "2021",
       "event": "Zenimax Mediaを75億ドルで買収し、Bethesda Softworksを傘下に収める。"
-    },
-    {
-      "year": "2025",
-      "event": "データ初期登録"
     }
   ],
-  "website": "https://www.microsoft.com",
+  "website": "http://www.microsoft.com",
   "relatedCompanies": [
     "LinkedIn",
     "Bethesda Softworks",
     "Mojang Studios",
     "Obsidian Entertainment",
-    "Ninja Theory"
+    "Ninja Theory",
+    "GitHub",
+    "Skype"
   ]
 }

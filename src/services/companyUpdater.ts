@@ -4,8 +4,10 @@
 import fs from 'fs/promises';
 import path from 'path';
 import { Company } from '../types/company';
+import { DeepResearchResult } from '../types/deep-research';
 import { UpdateConfig, CompanyUpdateConfig } from '../types/update-config';
 import { performDeepResearch } from './openaiService';
+import { performDeepResearchRAG } from './openaiServiceRAG';
 
 /**
  * 特定の会社データを更新
@@ -53,13 +55,26 @@ export async function updateCompanyData(slug: string): Promise<Company> {
       isNewCompany = true; // 新規会社フラグを設定
     }
 
-    // 5. Deep Research APIを呼び出してデータ取得（新規会社フラグを渡す）
-    const { companyInfo: updatedData } = await fetchDataFromDeepResearch(
-      existingData,
-      companyConfig,
-      config.deepResearchPromptTemplate,
-      isNewCompany
-    );
+    // 5. Deep Research APIを呼び出してデータ取得
+    let researchResult: DeepResearchResult;
+    if (companyConfig.useRAG) {
+      console.log('RAGを使用してDeep Researchを実行します');
+      // update-config で RAG を使うかどうか切り替え可能
+      researchResult = await performDeepResearchRAG(
+        companyConfig.name,
+        existingData,
+        isNewCompany
+      );
+    } else {
+      console.log('RAGを使用しないでDeep Researchを実行します');
+      researchResult = await performDeepResearch(
+        companyConfig.name,
+        config.deepResearchPromptTemplate,
+        existingData,
+        isNewCompany
+      );
+    }
+    const updatedData = researchResult.companyInfo;
 
     // 6. 既存データと統合
     const mergedData = mergeCompanyData(existingData, updatedData);
@@ -86,9 +101,6 @@ export async function updateCompanyData(slug: string): Promise<Company> {
  * @returns 初期化された会社データ
  */
 function createInitialCompanyData(slug: string, name: string): Company {
-  // 現在の年を取得
-  const currentYear = new Date().getFullYear().toString();
-
   return {
     id: slug,
     name: name,
@@ -97,12 +109,7 @@ function createInitialCompanyData(slug: string, name: string): Company {
     headquarters: '',
     description: '',
     notableWorks: [],
-    history: [
-      {
-        year: currentYear,
-        event: 'データ初期登録',
-      },
-    ],
+    history: [],
     website: '',
     relatedCompanies: [],
   };
@@ -155,67 +162,46 @@ export async function updateAllCompanies(
 }
 
 /**
- * Deep Researchを使用して会社データを取得
- */
-async function fetchDataFromDeepResearch(
-  company: Company,
-  companyConfig: CompanyUpdateConfig,
-  promptTemplate: string,
-  isNewCompany: boolean = false
-): Promise<{ companyInfo: Partial<Company> }> {
-  // OpenAI APIを使用してDeep Research実行
-  return await performDeepResearch(
-    companyConfig.name,
-    promptTemplate,
-    company,
-    isNewCompany
-  );
-}
-
-/**
  * 既存データと更新データをマージ
  */
 function mergeCompanyData(
   existing: Company,
   updated: Partial<Company>
 ): Company {
-  // 基本情報をマージ
   const merged: Company = {
     ...existing,
-    // 更新された情報で上書き
-    ...(updated.description && { description: updated.description }), // 会社概要
-    ...(updated.country && { country: updated.country }), // 本社所在国
-    ...(updated.headquarters && { headquarters: updated.headquarters }), // 本社所在地
-    ...(updated.website && { website: updated.website }), // 公式サイトURL
-    ...(updated.established && { established: updated.established }), // 設立年月日
+    ...(updated.description && { description: updated.description }),
+    ...(updated.country && { country: updated.country }),
+    ...(updated.headquarters && { headquarters: updated.headquarters }),
+    ...(updated.website && { website: updated.website }),
+    ...(updated.established && { established: updated.established }),
   };
 
-  // 代表作の更新（既存＋新規、重複除去）
+  // 代表作の更新（文字数が短すぎるものは除外する例）
   if (updated.notableWorks && updated.notableWorks.length > 0) {
-    const allWorks = [...existing.notableWorks, ...updated.notableWorks];
-    merged.notableWorks = [...new Set(allWorks)]; // 重複除去
+    const filtered = updated.notableWorks.filter(
+      (w) => w.length > 1 && w.length < 50
+    );
+    const allWorks = [...existing.notableWorks, ...filtered];
+    merged.notableWorks = [...new Set(allWorks)];
   }
 
-  // 関連会社の更新
+  // 関連会社の更新（重複除去）
   if (updated.relatedCompanies && updated.relatedCompanies.length > 0) {
-    const allRelated = [
-      ...(existing.relatedCompanies || []),
-      ...updated.relatedCompanies,
-    ];
-    merged.relatedCompanies = [...new Set(allRelated)]; // 重複除去
+    const filtered = updated.relatedCompanies.filter((c) => c.length > 0);
+    const allRelated = [...(existing.relatedCompanies || []), ...filtered];
+    merged.relatedCompanies = [...new Set(allRelated)];
   }
 
-  // 沿革の更新（既存＋新規、年順にソート）
+  // 沿革の更新（重複チェック＋年ソート）
   if (updated.history && updated.history.length > 0) {
-    // 既存の沿革に新しい項目を追加（重複チェック）
     const existingYears = new Set(existing.history.map((h) => h.year));
     const newHistory = updated.history.filter(
       (h) => !existingYears.has(h.year)
     );
-
     merged.history = [...existing.history, ...newHistory].sort((a, b) =>
       a.year.localeCompare(b.year)
-    ); // 年順にソート
+    );
   }
 
   return merged;

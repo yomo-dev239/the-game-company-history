@@ -2,14 +2,10 @@
   "id": "netease",
   "name": "NetEase",
   "country": "China",
-  "established": "1997",
+  "established": "1997-01-01",
   "headquarters": "Hangzhou, Zhejiang",
-  "description": "NetEase, Inc.は1997年に設立された中国のテクノロジー企業で、主にインターネット技術、オンラインサービス、ゲームの開発と運営に焦点を当てています。同社は特にオンラインゲームの分野で高い評価を受けており、自社開発のタイトルや他社とのライセンス契約によるタイトルを提供しています。NetEaseは中国国内外で多くのユーザーに支持されており、そのゲームポートフォリオには、MMORPGからモバイルゲームまで幅広いジャンルが含まれています。また、音楽ストリーミングサービスやオンライン教育といった分野でも事業を展開しており、多角的なビジネスモデルを構築しています。近年では、国際市場への進出も積極的に行っており、グローバルな影響力を拡大しています。",
-  "notableWorks": [
-    "Fantasy Westward Journey",
-    "The Ghost",
-    "Justice Online"
-  ],
+  "description": "NetEase, Inc.は中国のオンラインコンテンツ企業で、1997年に設立されました。PCおよびモバイルゲーム、広告サービス、メールサービス、eコマースなどを提供しています。ブリザードやマイクロソフトの子会社であるMojang ABなどのゲーム開発会社と提携し、グローバルなゲームコンテンツの中国国内配信も行っています。代表的なゲームタイトルには「Fantasy Westward Journey II」や「Justice Online」が含まれます。",
+  "notableWorks": ["Fantasy Westward Journey", "The Ghost", "Justice Online"],
   "history": [
     {
       "year": "1997",
@@ -38,15 +34,13 @@
     {
       "year": "2023",
       "event": "複数の新作ゲームをリリースし、国際市場でのプレゼンスを強化しました。"
-    },
-    {
-      "year": "2025",
-      "event": "データ初期登録"
     }
   ],
-  "website": "https://www.netease.com",
+  "website": "https://www.neteasegames.com/jp/",
   "relatedCompanies": [
     "NetEase Cloud Music",
-    "Youdao"
+    "Youdao",
+    "Blizzard Entertainment",
+    "Mojang AB"
   ]
 }

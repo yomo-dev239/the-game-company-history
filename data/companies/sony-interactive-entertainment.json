@@ -3,7 +3,7 @@
   "name": "株式会社ソニー・インタラクティブエンタテインメント",
   "established": "1993-11-16",
   "headquarters": "東京都港区",
-  "description": "株式会社ソニー・インタラクティブエンタテインメント（SIE）は、ソニーグループの一員としてビデオゲームの開発、出版、およびハードウェアの製造を行っている日本の企業です。PlayStationブランドの下で、高品質のゲームコンソールと広範なゲームライブラリを提供しており、世界中で広く認知されています。",
+  "description": "株式会社ソニー・インタラクティブエンタテインメントは、1993年に設立されたソニー・コンピュータエンタテインメントを前身とし、1994年に初代PlayStationを発売して以来、エンターテインメントとイノベーションの限界を超える努力を続けてきました。PlayStationの製品とサービスを通じて、革新的で心を揺さぶる感動体験を世界中のプレイヤーに届けています。グローバル機能をカリフォルニア、ロンドン、東京に構え、PlayStation Studiosのゲーム開発スタジオを有する私たちは、遊びの力に国境はないと信じています。",
   "notableWorks": [
     "The Last of Us",
     "God of War",
@@ -17,6 +17,10 @@
     "Horizon Forbidden West"
   ],
   "history": [
+    {
+      "year": "1993",
+      "event": "ソニー株式会社と株式会社ソニー・ミュージックエンタテインメントが合弁で株式会社ソニー・コンピュータエンタテインメントを設立"
+    },
     {
       "year": "1994",
       "event": "初代PlayStationの発売。"
@@ -48,18 +52,16 @@
     {
       "year": "2024",
       "event": "デジタルゲーム販売の拡大に伴い、PlayStation Networkのユーザー数が過去最高を記録。"
-    },
-    {
-      "year": "2025",
-      "event": "データ初期登録"
     }
   ],
-  "website": "https://www.sie.com/",
+  "website": "https://www.playstation.com",
   "relatedCompanies": [
     "Sony Corporation",
     "Sony Music Entertainment",
     "Sony Pictures Entertainment",
-    "Bungie, Inc."
+    "Bungie, Inc.",
+    "ソニーグループ株式会社",
+    "ポリフォニー・デジタル"
   ],
   "country": "日本"
 }

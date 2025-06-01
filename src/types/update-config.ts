@@ -15,6 +15,7 @@ export interface CompanyUpdateConfig {
   updateFrequency: UpdateFrequency; // 更新頻度
   priority: Priority; // 優先度
   lastUpdated: string; // 最終更新日時（ISO形式）
+  useRAG: boolean; // RAGを使用するかどうか
 }
 
 // 更新設定全体

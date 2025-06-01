@@ -1,10 +1,10 @@
 {
   "id": "electronic-arts",
   "name": "Electronic Arts",
-  "country": "United States",
-  "established": "1982-05",
-  "headquarters": "Redwood City, California",
-  "description": "Electronic Arts (EA) はアメリカ合衆国カリフォルニア州に本社を置く、世界有数のビデオゲーム開発・発売会社です。1982年に設立されたEAは、スポーツゲームの「FIFA」シリーズや「Madden NFL」シリーズ、アクションゲームの「Battlefield」シリーズ、そして「The Sims」シリーズなど、多岐にわたるジャンルの人気ゲームを提供しています。EAはデジタルエンターテイメントの革新に注力しており、モバイルゲームやオンラインサービスの拡張に力を入れています。また、EAは積極的な買収戦略を展開しており、多くのゲームスタジオを傘下に収め、製品ポートフォリオを拡大しています。",
+  "country": "アメリカ合衆国",
+  "established": "1982-05-27",
+  "headquarters": "209 Redwood Shores Parkway, Redwood City, California",
+  "description": "エレクトロニック・アーツ（Electronic Arts Inc.）は、1982年に設立されたアメリカの大手ゲーム会社で、主にビデオゲームの開発と販売を行っています。カリフォルニア州レッドウッドシティに本社を構え、FIFAシリーズやMadden NFLシリーズ、Battlefieldシリーズ、The Simsシリーズ、Need for Speedシリーズなど、数多くの人気ゲームを展開しています。EAは、ゲーム業界において革新を追求し続け、プレイヤーに新しい体験を提供することを目指しています。",
   "notableWorks": [
     "FIFA series",
     "Madden NFL series",
@@ -40,13 +40,9 @@
     {
       "year": "2023",
       "event": "新作ゲーム「Battlefield 2042」をリリースし、大規模なオンラインマルチプレイヤー機能を特徴とする。"
-    },
-    {
-      "year": "2025",
-      "event": "データ初期登録"
     }
   ],
-  "website": "https://www.ea.com",
+  "website": "www.ea.com",
   "relatedCompanies": [
     "BioWare",
     "DICE",

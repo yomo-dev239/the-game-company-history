@@ -5,112 +5,128 @@
       "name": "任天堂株式会社",
       "updateFrequency": "monthly",
       "priority": "high",
-      "lastUpdated": "2025-05-18T14:43:08.283Z"
+      "lastUpdated": "2025-06-01T17:03:38.526Z",
+      "useRAG": true
     },
     {
       "slug": "square-enix",
       "name": "株式会社スクウェア・エニックス",
       "updateFrequency": "monthly",
       "priority": "high",
-      "lastUpdated": "2025-05-18T14:43:34.828Z"
+      "lastUpdated": "2025-06-01T17:03:48.799Z",
+      "useRAG": true
     },
     {
       "slug": "capcom",
       "name": "株式会社カプコン",
       "updateFrequency": "monthly",
       "priority": "medium",
-      "lastUpdated": "2025-05-18T14:44:03.262Z"
+      "lastUpdated": "2025-06-01T17:03:59.531Z",
+      "useRAG": true
     },
     {
       "slug": "sega",
       "name": "株式会社セガ",
       "updateFrequency": "monthly",
       "priority": "medium",
-      "lastUpdated": "2025-05-18T14:44:18.068Z"
+      "lastUpdated": "2025-06-01T17:04:12.061Z",
+      "useRAG": true
     },
     {
       "slug": "bandai-namco",
       "name": "株式会社バンダイナムコエンターテインメント",
       "updateFrequency": "monthly",
       "priority": "high",
-      "lastUpdated": "2025-05-18T14:44:33.297Z"
+      "lastUpdated": "2025-06-01T17:04:21.014Z",
+      "useRAG": true
     },
     {
       "slug": "konami",
       "name": "株式会社コナミデジタルエンタテインメント",
       "updateFrequency": "monthly",
       "priority": "medium",
-      "lastUpdated": "2025-05-18T14:44:49.313Z"
+      "lastUpdated": "2025-06-01T17:04:33.281Z",
+      "useRAG": true
     },
     {
       "slug": "sony-interactive-entertainment",
       "name": "株式会社ソニー・インタラクティブエンタテインメント",
       "updateFrequency": "monthly",
       "priority": "high",
-      "lastUpdated": "2025-05-18T14:45:08.684Z"
+      "lastUpdated": "2025-06-01T17:04:42.275Z",
+      "useRAG": true
     },
     {
       "slug": "level-5",
       "name": "株式会社レベルファイブ",
       "updateFrequency": "monthly",
       "priority": "medium",
-      "lastUpdated": "2025-05-18T14:45:22.035Z"
+      "lastUpdated": "2025-06-01T17:04:52.640Z",
+      "useRAG": true
     },
     {
       "slug": "atlus",
       "name": "株式会社アトラス",
       "updateFrequency": "monthly",
       "priority": "medium",
-      "lastUpdated": "2025-05-18T14:45:35.922Z"
+      "lastUpdated": "2025-06-01T17:05:02.454Z",
+      "useRAG": true
     },
     {
       "slug": "microsoft",
       "name": "Microsoft",
       "updateFrequency": "monthly",
       "priority": "medium",
-      "lastUpdated": "2025-05-18T14:45:57.088Z"
+      "lastUpdated": "2025-06-01T17:05:10.232Z",
+      "useRAG": true
     },
     {
       "slug": "tencent",
       "name": "Tencent",
       "updateFrequency": "monthly",
       "priority": "medium",
-      "lastUpdated": "2025-05-18T14:46:16.959Z"
+      "lastUpdated": "2025-06-01T17:05:19.795Z",
+      "useRAG": true
     },
     {
       "slug": "nexon",
       "name": "NEXON",
       "updateFrequency": "monthly",
       "priority": "medium",
-      "lastUpdated": "2025-05-18T14:46:39.309Z"
+      "lastUpdated": "2025-06-01T17:05:28.286Z",
+      "useRAG": true
     },
     {
       "slug": "sea-limited",
       "name": "Sea Limited",
       "updateFrequency": "monthly",
       "priority": "medium",
-      "lastUpdated": "2025-05-18T14:46:54.538Z"
+      "lastUpdated": "2025-06-01T17:05:35.962Z",
+      "useRAG": true
     },
     {
       "slug": "netease",
       "name": "NetEase",
       "updateFrequency": "monthly",
       "priority": "medium",
-      "lastUpdated": "2025-05-18T14:47:17.055Z"
+      "lastUpdated": "2025-06-01T17:05:43.127Z",
+      "useRAG": true
     },
     {
       "slug": "electronic-arts",
       "name": "Electronic Arts",
       "updateFrequency": "monthly",
       "priority": "medium",
-      "lastUpdated": "2025-05-18T14:47:34.540Z"
+      "lastUpdated": "2025-06-01T17:05:51.127Z",
+      "useRAG": true
     },
     {
       "slug": "from-software",
       "name": "株式会社フロム・ソフトウェア",
       "updateFrequency": "monthly",
       "priority": "medium",
-      "lastUpdated": "2025-05-18T14:47:48.949Z"
+      "lastUpdated": "2025-06-01T17:06:01.992Z",
+      "useRAG": true
     }
   ],
   "deepResearchPromptTemplate": "以下の会社について最新情報を調査してください: {{name}}。特に最新の業績、新作ゲーム、経営陣の変更、買収・提携、重要な出来事について詳しく知りたいです。過去5年以内の重要な出来事を沿革として含めてください。"

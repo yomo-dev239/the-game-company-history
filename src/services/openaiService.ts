@@ -1,18 +1,69 @@
-/**
- * OpenAI APIを使用したDeep Research実行サービス
- */
 import OpenAI from 'openai';
+import {
+  ChatCompletionCreateParams,
+  ChatCompletionSystemMessageParam,
+  ChatCompletionUserMessageParam,
+} from 'openai/resources/chat/completions';
 import { Company } from '../types/company';
+import { DeepResearchResult } from '../types/deep-research';
+
+// 関数呼び出し用のJSONスキーマを定義
+export const companyUpdateFunction = {
+  name: 'update_company_info',
+  description: 'ゲーム会社の詳細情報を最新化するための JSON を返す',
+  parameters: {
+    type: 'object',
+    properties: {
+      description: {
+        type: 'string',
+        description: '会社の概要説明（300〜500字程度）',
+      },
+      established: {
+        type: 'string',
+        description: '設立年月日（YYYY-MM-DD 形式。分からない場合は YYYY-MM）',
+      },
+      country: {
+        type: 'string',
+        description: '本社所在国',
+      },
+      headquarters: {
+        type: 'string',
+        description: '本社所在地（都道府県＋市区町村）',
+      },
+      notableWorks: {
+        type: 'array',
+        items: { type: 'string' },
+        description: '代表作のタイトルリスト',
+      },
+      history: {
+        type: 'array',
+        items: {
+          type: 'object',
+          properties: {
+            year: { type: 'string', description: '年（YYYY）' },
+            event: { type: 'string', description: 'その年の主要な出来事' },
+          },
+        },
+        description: '沿革リスト（年順）',
+      },
+      website: {
+        type: 'string',
+        description: '公式サイト URL',
+      },
+      relatedCompanies: {
+        type: 'array',
+        items: { type: 'string' },
+        description: '関連企業の名前リスト',
+      },
+    },
+    required: ['description', 'notableWorks', 'history'],
+  },
+} as const;
 
 // OpenAIクライアントの初期化
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
-
-interface DeepResearchResult {
-  companyInfo: Partial<Company>;
-  rawResponse: string;
-}
 
 /**
  * Deep Researchを使用して会社情報を取得
@@ -31,89 +82,72 @@ export async function performDeepResearch(
     // プロンプトの作成
     const prompt = promptTemplate.replace('{{name}}', companyName);
 
-    // 最新の歴史情報を取得（安全なアクセス）
+    // 最新の沿革例を取得
     const latestHistory =
       existingData.history.length > 0
-        ? `${existingData.history[existingData.history.length - 1]?.year || '不明'}: ${existingData.history[existingData.history.length - 1]?.event || '不明'}`
+        ? `${existingData.history[existingData.history.length - 1]?.year || ''}: ${existingData.history[existingData.history.length - 1]?.event || ''}`
         : '情報なし';
 
-    // コンテキスト作成（新規会社の場合は詳細情報リクエスト）
+    // コンテキスト作成
     const context = isNewCompany
       ? `
-新規登録会社「${companyName}」について、以下の情報を詳しく調査してください：
+新規登録会社「${companyName}」について、以下の情報をできるだけ正確に取得し、必ず指定された JSON スキーマに則って出力してください。
 - 設立年月日
 - 本社所在地
 - 会社概要（300〜500字程度）
-- 代表作タイトル
-- 沿革（主要な出来事）
-- 関連会社
-- 公式サイトURL
+- 代表作リスト
+- 沿革（主要な出来事を年順で）
+- 公式サイト URL
+- 関連企業リスト
 
-以下のJSON形式で詳細な情報を返してください:
-{
-  "established": "設立年月日（YYYY-MM-DD形式、日付が不明の場合はYYYY-MM、月も不明の場合はYYYY）",
-  "country": "本社所在国",
-  "headquarters": "本社所在地",
-  "description": "会社の概要説明（300〜500字程度）",
-  "notableWorks": ["代表作タイトルのリスト"],
-  "history": [
-    {"year": "YYYY", "event": "重要な出来事の説明"}
-  ],
-  "website": "公式サイトURL",
-  "relatedCompanies": ["関連会社名のリスト"]
-}
+出力は必ず純粋な JSON のみとし、余計な説明文や中略を含めないでください。
 `
       : `
-現在持っている情報:
+以下の既存データを参考に、${companyName} の最新情報を取得し、必ず指定の JSON スキーマに則って返してください。
 - 設立: ${existingData.established}
 - 本社: ${existingData.headquarters}
-- 代表作: ${existingData.notableWorks.join(', ')}
-- 最新の歴史情報: ${latestHistory}
+- 最新沿革例: ${latestHistory}
+- 代表作例: ${existingData.notableWorks.join('、')}
 
-この情報をもとに、最新のデータを取得し、以下のJSON形式で返してください:
-{
-  "description": "会社の最新の概要説明",
-  "established": "設立年月日（YYYY-MM-DD形式が望ましい）",
-  "country": "本社所在国",
-  "headquarters": "本社所在地",
-  "notableWorks": ["最新の代表作リスト"],
-  "history": [
-    {"year": "YYYY", "event": "重要な出来事の説明"}
-  ],
-  "website": "最新の公式サイトURL",
-  "relatedCompanies": ["関連会社名のリスト"]
-}
+もし分からない項目があれば null を設定し、不要なフィールドは出力しないでください。必ず JSON のみを出力してください。
 `;
 
-    // OpenAI APIの呼び出し
+    // System / User メッセージ構築
+    const messages: (
+      | ChatCompletionSystemMessageParam
+      | ChatCompletionUserMessageParam
+    )[] = [
+      {
+        role: 'system' as const,
+        content:
+          'あなたはゲーム業界に詳しいリサーチャーです。常に最新かつ正確な情報を提供し、出力は必ず関数仕様にラップしてください。',
+      },
+      { role: 'user' as const, content: `${prompt}\n\n${context}` },
+    ];
+
+    // API 呼び出し（Function Calling を指定）
     const response = await openai.chat.completions.create({
-      model: 'gpt-4-turbo', // または利用可能な最新のモデル
-      messages: [
-        {
-          role: 'system',
-          content:
-            'あなたはゲーム会社に関する正確な最新情報を提供するリサーチ専門家です。情報は常に事実に基づき、出力は指定されたJSON形式で行ってください。',
-        },
-        { role: 'user', content: `${prompt}\n\n${context}` },
-      ],
-      temperature: 0.2, // 低い温度で事実ベースの回答を得る
-      response_format: { type: 'json_object' },
+      model: 'gpt-4o-mini', // 利用可能な最新モデル
+      messages,
+      functions: [companyUpdateFunction as ChatCompletionCreateParams.Function],
+      function_call: { name: 'update_company_info' },
+      temperature: 0.1,
     });
 
-    // レスポンスの取得（nullチェック）
-    const rawResponse = response.choices?.[0]?.message?.content || '';
-
-    // JSONパース
-    const parsedData = JSON.parse(rawResponse) as Partial<Company>;
+    // 関数呼び出し結果をパース
+    const message = response.choices?.[0]?.message;
+    if (!message?.function_call?.arguments) {
+      throw new Error('Function call が返ってきませんでした');
+    }
+    const rawArgs = message.function_call.arguments as string;
+    const parsed = JSON.parse(rawArgs) as Partial<Company>;
 
     return {
-      companyInfo: parsedData,
-      rawResponse,
+      companyInfo: parsed,
+      rawResponse: rawArgs,
     };
   } catch (error) {
-    console.error('Deep Research実行中にエラーが発生しました:', error);
-    throw new Error(
-      `Deep Research実行中にエラーが発生しました: ${error instanceof Error ? error.message : String(error)}`
-    );
+    console.error('Deep Research実行中にエラー:', error);
+    throw error;
   }
 }

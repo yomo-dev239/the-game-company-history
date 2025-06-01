@@ -12,16 +12,6 @@ export default function CompanyDetailContent({
   company,
   establishedAt,
 }: CompanyDetailContentProps) {
-  // 会社名の頭文字（ロゴ代替）
-  const getInitialFromName = (name: string) => {
-    const cleaned = name.replace(
-      /^株式会社|^有限会社|^合同会社|^（株）|^（有）|^（同）/,
-      ''
-    );
-    return cleaned.charAt(0).toUpperCase();
-  };
-  const initial = getInitialFromName(company.name);
-
   return (
     <>
       {/* ===== ヘッダーセクション ===== */}
@@ -29,10 +19,6 @@ export default function CompanyDetailContent({
         <div className="absolute inset-0 -z-10 rotate-2 rounded-2xl bg-gradient-to-tr from-indigo-600 to-purple-600 opacity-80 shadow-xl"></div>
         <div className="relative flex w-full flex-col gap-4 rounded-2xl bg-white p-8 shadow-2xl dark:bg-slate-800">
           <div className="flex items-center gap-5">
-            {/* 丸い頭文字アイコン */}
-            <div className="flex size-16 items-center justify-center rounded-full bg-indigo-600 text-4xl font-extrabold text-white shadow-inner">
-              {initial}
-            </div>
             {/* 企業名 */}
             <h1 className="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-5xl">
               {company.name}
