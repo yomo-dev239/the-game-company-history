@@ -34,7 +34,6 @@ export const SearchForm = ({ companies, onSearch }: SearchFormProps) => {
         isClearable={true}
         onClear={() => handleSearch('')}
         startContent={<IoIosSearch />}
-        size="md"
         classNames={{
           base: 'max-w-md',
           inputWrapper: 'shadow-sm',

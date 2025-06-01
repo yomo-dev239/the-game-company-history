@@ -21,19 +21,6 @@ THE ゲーム会社史
 - UI: Hero UI
 - AI: ChatGPT Plus (GPT-4)
 
-## データ仕様
-- `data/companies/*.json` に各ゲーム会社の情報を保存（例: nintendo.json）
-- 型定義は `src/types/company.ts` に定義済み
-  - 型名: `Company`
-
-## 表示構成
-- `/companies`: ゲーム会社一覧ページ（カード形式で社名や概要を表示）
-- `/companies/[slug]`: 会社ごとの詳細ページ（代表作や沿革などを表示）
-
-## 今後の方針
-- Deep Research（ChatGPT Plus）を使って各社データをJSONで取得・拡充
-- フィルタ・検索機能も将来的に追加予定
-
 ## プロジェクト構造
 
 - `docs/` ディレクトリにはプロジェクトのドキュメントを配置する
@@ -47,3 +34,12 @@ THE ゲーム会社史
   - `src/styles/` にはシステム全体で利用するスタイル定義を配置する
   - `src/types/` にはシステム全体で利用する型定義を配置する
   - `src/utils/` にはシステム全体で利用する汎用関数を配置する
+
+## データ仕様
+- `data/companies/*.json` に各ゲーム会社の情報を保存（例: nintendo.json）
+- 型定義は `src/types/company.ts` に定義済み
+  - 型名: `Company`
+
+## 画面構成
+- `/companies`: ゲーム会社一覧ページ（カード形式で社名や概要を表示）
+- `/companies/[slug]`: 会社ごとの詳細ページ（代表作や沿革などを表示）

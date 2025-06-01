@@ -11,8 +11,12 @@ export default function CompaniesPage() {
   const allCompanies = getAllCompanies();
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="mb-6 text-3xl font-bold">ゲーム会社一覧</h1>
+    <div className="container mx-auto max-w-screen-xl px-2 py-8">
+      <div className="relative mb-8 rounded-xl bg-gradient-to-r from-purple-900 via-indigo-800 to-blue-900 p-8 text-white shadow-lg">
+        <h1 className="text-4xl font-extrabold tracking-wide sm:text-5xl">
+          THE ゲーム会社史
+        </h1>
+      </div>
 
       <CompaniesContent initialCompanies={allCompanies} />
     </div>
